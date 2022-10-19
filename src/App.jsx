@@ -1,9 +1,10 @@
 import axios from "axios";
-import { useEffect, useState } from "react";
+import { useState } from "react";
 import { Route, Routes } from "react-router";
 import "./App.css";
 import Home from "./Home";
 import Users from "./Users";
+import { Link } from "react-router-dom";
 
 function App() {
   const [users, setUsers] = useState([]);
@@ -29,8 +30,9 @@ function App() {
           path="/"
           element={<Home handleSubmit={handleSubmit} users={users} />}
         />
-        <Route path="Users" element={<Users />} />
+        <Route path="Users" element={<Users users={users} />} />
       </Routes>
+      <Link to="Users">{/* <button>users</button>{" "} */}</Link>
     </div>
   );
 }
